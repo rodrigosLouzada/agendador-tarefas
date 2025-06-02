@@ -2,6 +2,7 @@ package com.projectSpringB.agendador_tarefas.infrastructure.entity;
 
 import com.projectSpringB.agendador_tarefas.infrastructure.enums.StatusNotificacaoEnum;
 import lombok.*;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
@@ -14,6 +15,7 @@ import java.time.LocalDateTime;
 @Builder
 @Document("tarefa")
 public class TarefasEntity {
+    @Id
     private String id;
     private String nomeTarefa;
     private String descricao;
