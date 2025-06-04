@@ -32,4 +32,9 @@ public class TarefaController {
         return ResponseEntity.ok(tarefaService.buscarTarefasAgendadas(dataInicial,dataFinal));
     }
 
+    @GetMapping
+    public ResponseEntity<List<TarefasDTO>> buscarListaTarefasPorEmail(@RequestHeader("Authorization") String token){
+        return ResponseEntity.ok(tarefaService.buscarTarefasPorEmail(token));
+    }
+
 }

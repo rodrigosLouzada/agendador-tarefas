@@ -33,4 +33,9 @@ public class TarefaService {
     public List<TarefasDTO> buscarTarefasAgendadas(LocalDateTime dataInicial, LocalDateTime dataFinal){
         return tarefaConverter.paraListaTarefasEntity(tarefasRepository.findByDataEventoBetween(dataInicial,dataFinal));
     }
+
+    public List<TarefasDTO> buscarTarefasPorEmail(String token){
+        String email = jwtUtil.extractUsername(token.substring(7));
+        return tarefaConverter.paraListaTarefasEntity(tarefasRepository.findByEmailUsuario(email));
+    }
 }
